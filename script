@@ -1,0 +1,43 @@
+--Tutorial Script Hub
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Prison Life", HidePremium = false, SaveConfig, IntroText = "Loading..." = true, ConfigFolder = "OrionConfig"})
+
+local PlayerTab = Window:MakeTab({
+	Name = "Players",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = PlayerTab:AddSection({
+	Name = "Movement"
+})
+
+Tab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 500,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		game.Workspace.aerius100.Humanoid.WalkSpeed = Value
+	end    
+})
+
+Tab:AddSlider({
+	Name = "jumpPower",
+	Min = 50,
+	Max = 500,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Height",
+	Callback = function(Value)
+		game.Workspace.aerius100.Humanoid.UseJumpPower.Enabled = true
+        game.Workspace.aerius100.Humanoid.jumpPower = Value
+	end    
+})
+
+OrionLib.Init()
